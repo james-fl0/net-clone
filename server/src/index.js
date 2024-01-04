@@ -10,9 +10,7 @@ configDotenv()
 
 const app = express()
 app.use(cors({
-  origin: 'https://net-clone-iota.vercel.app/', // o el dominio de tu cliente en desarrollo
-  methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type'],
+  origin: 'https://net-clone-iota.vercel.app/', 
   credentials:true
 }));
 
