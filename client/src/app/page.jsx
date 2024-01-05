@@ -22,7 +22,7 @@ const showSwal = (msj) => {
         title: msj,
     })
 }
-export default function singUp() {
+export default function SingUp() {
 
     useEffect(() => {
         async function fetchData() {
