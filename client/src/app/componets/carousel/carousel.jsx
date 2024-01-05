@@ -17,10 +17,10 @@ export default function App({ URL_IMAGE, series, titulo}) {
 
     const [agregado, setAgregado] =useState(false)
     // const [width, setWidth] = useState(getInitialWidth)
-    const [imgCarousel, setImgCarousel] = useState(widthEnPx)
+    // const [imgCarousel, setImgCarousel] = useState(widthEnPx)
 
 
-
+    const imgCarousel = 1000
     const width = 5
     // function getInitialWidth() {
     //     return window.innerWidth < 768 ? 2.5 : 5
