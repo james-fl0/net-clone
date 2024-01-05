@@ -10,7 +10,7 @@ configDotenv()
 
 const app = express()
 app.use(cors({
-  origin: `${process.env.FRONTEND_URL}/`,
+  origin: 'https://net-clone-iota.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials:true
 }));
