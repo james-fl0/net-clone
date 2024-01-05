@@ -9,12 +9,11 @@ import { config as configDotenv } from "dotenv";
 configDotenv()
 
 const app = express()
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // Puedes reemplazar '*' con tu dominio específico si es necesario
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+app.use(cors({
+  origin: 'http://localhost:3000', // o el dominio de tu cliente en desarrollo
+  methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+}));
 
 app.use(express.json())
 app.use(sessions)
