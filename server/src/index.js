@@ -13,6 +13,7 @@ app.use(cors({
   origin: 'http://localhost:3000', // o el dominio de tu cliente en desarrollo
   methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type'],
+  credentials:true
 }));
 
 app.use(express.json())
