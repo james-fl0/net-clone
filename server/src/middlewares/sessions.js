@@ -16,7 +16,7 @@ export const sessions = session({
   cookie: {
     secure: false,
     httpOnly: true,
-    domain: 'http://localhost:3000',
+    domain: 'localhost:3000',
     sameSite:'None'
   },
   credentials:true
