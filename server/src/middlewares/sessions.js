@@ -17,7 +17,7 @@ export const sessions = session({
     secure: false,
     httpOnly: true,
     domain: 'localhost',
-    sameSite:'lax'
+    sameSite:'none'
   },
   credentials:true
 })
