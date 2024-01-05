@@ -14,10 +14,10 @@ export const sessions = session({
   saveUninitialized: false,
   store,
   cookie: {
-    secure: true,
+    secure: false,
     httpOnly: true,
     domain: process.env.FRONTEND_URL,
-    sameSite:'None'
+    sameSite:'none'
   },
   credentials:true
 })
