@@ -61,7 +61,8 @@ export default function singUp() {
                 },
                 body: JSON.stringify({
                     email: email
-                })
+                }),
+                credentials: 'include'
             })
             if (res.status === 201) {
                 toMember()

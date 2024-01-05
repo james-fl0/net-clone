@@ -14,7 +14,7 @@ export const sessions = session({
   saveUninitialized: false,
   store,
   cookie: {
-    secure: false,
+    secure: true,
     httpOnly: true,
     domain: 'localhost',
     sameSiteameSite: 'None'
