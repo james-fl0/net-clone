@@ -1,0 +1,114 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.contenedor-inicio {
+  background-color: black;
+}
+
+.color-fondo {
+  background-color: #04040486;
+  height: 100vh;
+}
+
+.logo {
+  width: 200px;
+}
+
+.contenedor-sesion {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.formulario-sesion {
+  width: 90%;
+}
+
+.formulario-sesion h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.form-sesion {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-sesion {
+  height: 45px;
+  border-radius: 5px;
+}
+
+.button-sesion {
+  margin-top: 25px;
+  height: 45px;
+  background-color: #E50914;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.button-sesion:hover {
+  cursor: pointer;
+  background-color: #b80b13;
+}
+
+.contenedor-form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #636363;
+  font-size: .8rem;
+}
+
+.contenedor-form p:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.form-anuncio {
+  display: flex;
+  gap: 5px;
+  color: #636363;
+  margin-top: 30px;
+  font-size: 1rem;
+}
+
+.form-anuncio a {
+  color: white;
+  text-decoration: none;
+}
+
+.form-anuncio a:hover {
+  cursor: pointer;
+}
+
+#checkbox {
+  margin-right: 5px;
+}
+
+
+@media (min-width:768px) {
+  .contenedor-inicio {
+    background-color: none;
+    background-image: url(../assets/backgroundSesion.jpg);
+  }
+
+  .formulario-sesion {
+    border-radius: 5px;
+    padding: 55px 55px 75px 55px;
+    background-color: #040404b2;
+    width: 340px;
+  }
+}
+
+.hidden {
+  display: none;
+}
