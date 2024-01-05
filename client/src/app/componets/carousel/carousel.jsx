@@ -16,42 +16,44 @@ import 'swiper/css/pagination';
 export default function App({ URL_IMAGE, series, titulo}) {
 
     const [agregado, setAgregado] =useState(false)
-    const [width, setWidth] = useState(getInitialWidth)
+    // const [width, setWidth] = useState(getInitialWidth)
     const [imgCarousel, setImgCarousel] = useState(widthEnPx)
 
 
-    function getInitialWidth() {
-        return window.innerWidth < 768 ? 2.5 : 5
-    }
 
-    //PARA MODIFICAR LA CANTIDAD DE IMAGENES POR CAROUSEL EN EL VW
+    const width = 5
+    // function getInitialWidth() {
+    //     return window.innerWidth < 768 ? 2.5 : 5
+    // }
 
-    useEffect(() => {
-        const handleResize = () => {
-            setWidth(getInitialWidth())
-        }
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        }
-    }, [])
+    // //PARA MODIFICAR LA CANTIDAD DE IMAGENES POR CAROUSEL EN EL VW
+
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         setWidth(getInitialWidth())
+    //     }
+    //     window.addEventListener('resize', handleResize);
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     }
+    // }, [])
 
 
-    //PARA MODIFICAR LA IMG DEL CAROUSEL
+    // //PARA MODIFICAR LA IMG DEL CAROUSEL
 
-    useEffect(() => {
-        const windowResize = () => {
-            setImgCarousel(widthEnPx())
-        }
-        window.addEventListener('resize', windowResize);
-        return () => {
-            window.removeEventListener('resize', windowResize);
-        }
-    }, [])
+    // useEffect(() => {
+    //     const windowResize = () => {
+    //         setImgCarousel(widthEnPx())
+    //     }
+    //     window.addEventListener('resize', windowResize);
+    //     return () => {
+    //         window.removeEventListener('resize', windowResize);
+    //     }
+    // }, [])
 
-    function widthEnPx() {
-        return window.innerWidth
-    }
+    // function widthEnPx() {
+    //     return window.innerWidth
+    // }
 
     //TIPS BOTONES
 
