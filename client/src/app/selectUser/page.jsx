@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Loader from "../componets/loader/Loader";
 import './page.css'
-export default function selectUser() {
+export default function SelectUser() {
 
     const [user, setUser] = useState(null)
     const [profileImgs, setProfileImages] = useState([])

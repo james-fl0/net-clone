@@ -33,7 +33,7 @@ export default function singUp() {
                 })
                 if (res.status === 201) {
                     window.location.href = '/selectUser'
-                }else{
+                }else if(res.status === 404){
                     const data = await res.json()
                     console.log(data.message);
                 }
