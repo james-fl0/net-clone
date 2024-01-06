@@ -5,7 +5,7 @@ export const loginRouter = Router()
 
 loginRouter.post('/Login', passport.authenticate('loginLocal', { failWithError: true }),
     async (req, res, next) => {
-        req.session.user = JSON.stringify(req.user)
+        req.session.user = req.user
         res.status(204).json({ status: 'success', message: 'login success' })
     },
     (error, req, res, next) => {
