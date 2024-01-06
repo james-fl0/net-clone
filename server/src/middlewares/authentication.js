@@ -19,19 +19,8 @@ passport.use('loginLocal', new localStrategy({
 }))
 
 
-// passport.serializeUser((user, next) => { next(null, user) })
-// passport.deserializeUser((user, next) => { next(null, user) })
-
-passport.serializeUser((user, done) => {
-    done(null, user._id);
-  });
-  
-  passport.deserializeUser((id, done) => {
-    // Buscar el usuario por ID y devolverlo
-    userManager.findById(id, (err, user) => {
-      done(err, user);
-    });
-  });
+passport.serializeUser((user, next) => { next(null, user) })
+passport.deserializeUser((user, next) => { next(null, user) })
   
 
 export const passportInitialize = passport.initialize()
