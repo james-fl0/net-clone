@@ -23,7 +23,7 @@ passport.use('loginLocal', new localStrategy({
 // passport.deserializeUser((user, next) => { next(null, user) })
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user._id);
   });
   
   passport.deserializeUser((id, done) => {
