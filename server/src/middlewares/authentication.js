@@ -7,7 +7,7 @@ configDotenv()
 passport.use('loginLocal', new localStrategy({
     usernameField: 'email',
     passwordField: 'password',
-     session:true
+    session: true
 }, async function verification(username, password, done) {
     try {
         const userData = await userManager.login(username, password)
