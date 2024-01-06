@@ -43,8 +43,7 @@ export default function Inicio() {
 
       })
       if (res.status === 201) {
-        console.log(res);
-        // window.location.href = '/selectUser'
+        window.location.href = '/selectUser'
       } else if (res.status === 401) {
         const data = await res.json()
         showSwal(data.message)
