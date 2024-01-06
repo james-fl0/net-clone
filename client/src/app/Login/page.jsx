@@ -43,8 +43,7 @@ export default function Inicio() {
 
       })
       if (res.status === 204) {
-        const data = await res.json()
-        console.log(data);
+        console.log(res);
         // window.location.href = '/selectUser'
       } else if (res.status === 401) {
         const data = await res.json()
