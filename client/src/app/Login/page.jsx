@@ -50,7 +50,7 @@ export default function Inicio() {
       }
     }
     catch (error) {
-      console.log('error al realizar la solicitud');
+      console.log(error)
     }
   }
 
