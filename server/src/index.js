@@ -26,7 +26,7 @@ app.use(fetchUserPictures)
 
 app.get('/', async (req, res) => {
   try {
-    const user = await req.session.user
+    const user =  req.session.user
     if (user) {
       return res.status(201).json({ status: 'success', message: 'have session', user: user })
     } else {
