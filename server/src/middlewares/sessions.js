@@ -9,10 +9,10 @@ const store = connectMongo.create({
 })
 
 export const sessions = session({
+  store,
   secret: process.env.SECRET_COOKIE_KEY,
   resave: false,
   saveUninitialized: false,
-  store,
   cookie: {
     secure: true,
     httpOnly: true,

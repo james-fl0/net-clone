@@ -16,9 +16,9 @@ app.use(cors({
 }));
 
 app.use(express.json())
-app.use(sessions)
 app.use(passportInitialize)
 app.use(passportSession)
+app.use(sessions)
 const port = process.env.PORT || 8080
 app.use(apiUsers)
 app.use('/api', membershipRouter)
