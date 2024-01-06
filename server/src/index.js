@@ -15,9 +15,9 @@ app.use(cors({
   credentials: true
 }));
 
+app.use(passportInitialize)
 app.use(express.json())
 app.use(sessions)
-app.use(passportInitialize)
 app.use(passportSession)
 
 const port = process.env.PORT || 8080
