@@ -16,7 +16,7 @@ export const sessions = session({
   cookie: {
     secure: true,
     httpOnly: true,
-    sameSite: 'lax',
-    domain: 'net-clone-iota.vercel.app'
+    domain: 'net-clone-iota.vercel.app',
+    sameSite: 'none',
   }
 })
