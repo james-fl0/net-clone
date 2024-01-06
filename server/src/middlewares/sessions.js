@@ -14,9 +14,9 @@ export const sessions = session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: 'auto' ,
+    secure: true ,
     httpOnly: true,
     domain: 'net-clone-iota.vercel.app',
-    sameSite: 'none',
+    sameSite: false,
   }
 })
