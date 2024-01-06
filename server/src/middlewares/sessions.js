@@ -17,6 +17,6 @@ export const sessions = session({
     secure: true ,
     httpOnly: true,
     domain: 'net-clone-iota.vercel.app',
-    sameSite: false,
+    sameSite: 'none',
   }
 })
