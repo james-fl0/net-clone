@@ -12,12 +12,13 @@ const app = express()
 app.use(cors({
   origin: 'https://net-clone-iota.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials:true
+  credentials: true
 }));
 
 app.use(express.json())
 app.use(sessions)
-app.use(passportInitialize, passportSession)
+app.use(passportInitialize)
+app.use(passportSession)
 const port = process.env.PORT || 8080
 app.use(apiUsers)
 app.use('/api', membershipRouter)
@@ -27,12 +28,12 @@ app.get('/', async (req, res) => {
   try {
     const user = req.user
     if (user) {
-      return res.status(201).json({ status:'success',message: 'have session', user:user })
-    }else {
-      return res.status(404).json({status:'error', message: 'dont have session' })
+      return res.status(201).json({ status: 'success', message: 'have session', user: user })
+    } else {
+      return res.status(404).json({ status: 'error', message: 'dont have session' })
     }
-  } catch (error){
-    return res.status(500).json({status:'error',message:'server internal error'})
+  } catch (error) {
+    return res.status(500).json({ status: 'error', message: 'server internal error' })
   }
 })
 
