@@ -42,7 +42,7 @@ export default function Inicio() {
         })
 
       })
-      if (res.status === 204) {
+      if (res.status === 201) {
         console.log(res);
         // window.location.href = '/selectUser'
       } else if (res.status === 401) {
