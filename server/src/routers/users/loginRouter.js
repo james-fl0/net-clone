@@ -5,6 +5,7 @@ export const loginRouter = Router()
 
 loginRouter.post('/Login', passport.authenticate('loginLocal', { failWithError: true }),
     async (req, res, next) => {
+        console.log(req.user);
         res.cookie('user', req.user,{ secure: true, httpOnly: true, sameSite: 'none' })
         res.status(204).json({ status: 'success', message: 'login success' })
     },
