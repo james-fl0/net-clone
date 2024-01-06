@@ -32,7 +32,6 @@ export default function Inicio() {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/Login`, {
         method: 'POST',
-        withCredentials: true,
         credentials:'include',
         headers: {
           'Content-Type': 'application/json'

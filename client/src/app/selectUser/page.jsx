@@ -31,7 +31,6 @@ export default function SelectUser() {
                 const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/userPictures`, {
                     method: 'GET',
                     credentials: 'include',
-                    withCredentials: true,
                 })
                 if (res.status === 200) {
                     const data = await res.json()
