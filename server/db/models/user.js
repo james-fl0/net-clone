@@ -59,12 +59,13 @@ const userSchema = new mongoose.Schema({
                 if (!pwd) {
                     throw new Error('Contraseña incorrecta')
                 }
-                const user = {
-                    email: findUser.email,
-                    profiles: findUser.profiles,
-                    membership: findUser.membership,
-                    rol: 'user'
-                }
+                const user = findUser._id
+                // {
+                //     email: findUser.email,
+                //     profiles: findUser.profiles,
+                //     membership: findUser.membership,
+                //     rol: 'user'
+                // }
                 return user
             }
 

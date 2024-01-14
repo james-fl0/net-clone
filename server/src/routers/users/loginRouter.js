@@ -1,13 +1,16 @@
 import { Router } from "express";
-import passport from "passport";
-
+import { userManager } from "../../../db/db.js";
+import jwt from 'jsonwebtoken'
 export const loginRouter = Router()
 
-loginRouter.post('/Login', passport.authenticate('loginLocal', { failWithError: true }),
-    async (req, res, next) => {
-        res.status(201).json({ status: 'success', message: 'login success', user: req.session.user })
-    },
-    (error, req, res, next) => {
-        res.status(401).json({ status: 'success', message: error.message })
+loginRouter.post('/Login', async (req, res) => {
+    try {
+        const user = await userManager.login(req.body.email, req.body.password)
+        const token =  jwt.sign(user, 'secret')
+        req.session.token = token
+        res.status(201).json({ status: 'success', message: 'login ok' })
+    } catch (error) {
+        res.status(401).json({ status: 'error', message: error.message })
     }
+}
 )

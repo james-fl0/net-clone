@@ -1,11 +1,13 @@
 import express from 'express'
 import cors from 'cors'
 import { apiUsers } from './routers/users/apiUsers.js'
+import jwt from 'jsonwebtoken'
 import { passportInitialize, passportSession } from "./middlewares/authentication.js"
 import { sessions } from './middlewares/sessions.js'
 import { membershipRouter } from './routers/membershipRouters/membershipRouter.js'
 import { fetchUserPictures } from './routers/awsRouters/fetchUserPictures.js'
 import { config as configDotenv } from "dotenv";
+import { userManager } from '../db/db.js'
 configDotenv()
 
 const app = express()
@@ -18,7 +20,7 @@ app.use(cors({
 
 
 app.use(sessions)
-app.use(passportInitialize,passportSession)
+app.use(passportInitialize, passportSession)
 
 app.use(apiUsers)
 app.use('/api', membershipRouter)
@@ -26,14 +28,19 @@ app.use(fetchUserPictures)
 
 app.get('/', async (req, res) => {
   try {
-    const user =  req.user
-    if (user) {
-      return res.status(201).json({ status: 'success', message: 'have session', user: user })
-    } else {
-      return res.status(404).json({ status: 'error', message: 'dont have session' })
+    const token = req.session.token
+    if (!token) {
+      throw new Error('no hay session')
     }
+    jwt.verify(token, 'secret',async (err, decoded) => {
+      if (err) {
+        throw new Error('fail to decode jwt')
+      }
+      const user = await userManager.findOne({_id:decoded})
+      res.status(201).json({ status: 'success', message: 'user finded', user: user })
+    })
   } catch (error) {
-    return res.status(500).json({ status: 'error', message: 'server internal error' })
+    res.status(401).json({ status: 'error', message: error.message })
   }
 })
 const port = process.env.PORT || 8080

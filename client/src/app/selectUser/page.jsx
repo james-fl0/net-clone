@@ -18,6 +18,7 @@ export default function SelectUser() {
                 })
                 if (res.status === 201) {
                     const data = await res.json()
+                    console.log(data);
                     setUser(data.user)
                 }
             }
