@@ -2,7 +2,6 @@ import express from 'express'
 import cors from 'cors'
 import { apiUsers } from './routers/users/apiUsers.js'
 import jwt from 'jsonwebtoken'
-import { passportInitialize, passportSession } from "./middlewares/authentication.js"
 import { sessions } from './middlewares/sessions.js'
 import { membershipRouter } from './routers/membershipRouters/membershipRouter.js'
 import { fetchUserPictures } from './routers/awsRouters/fetchUserPictures.js'
@@ -20,7 +19,6 @@ app.use(cors({
 
 
 app.use(sessions)
-app.use(passportInitialize, passportSession)
 
 app.use(apiUsers)
 app.use('/api', membershipRouter)
