@@ -17,7 +17,7 @@ export const sessions = session({
     secure: true,
     httpOnly: true,
     domain: process.env.FRONTEND_URL || 'localhost',
-    sameSite: 'none',
+    sameSite: 'None',
   },
   credentials: true
 })
