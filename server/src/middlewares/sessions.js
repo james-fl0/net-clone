@@ -14,7 +14,7 @@ export const sessions = session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: true,
+    secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
     domain: process.env.FRONTEND_URL || 'localhost',
     sameSite: 'None',
