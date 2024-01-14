@@ -17,12 +17,13 @@ export default function Nav({ toggleBuscar, home }) {
 
         async function fetchData() {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/selectedProfile`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'}/selectedProfile`, {
                     method: 'GET',
                     credentials: 'include'
                 })
                 if (res.status === 201) {
                     const data = await res.json()
+                    console.log(data);
                     setProfile(data.profile)
                 }
             }

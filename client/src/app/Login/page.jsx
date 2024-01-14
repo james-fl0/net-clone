@@ -30,7 +30,7 @@ export default function Inicio() {
   async function singIn(email, password, e) {
     e.preventDefault()
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/Login`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'}/Login`, {
         method: 'POST',
         credentials:'include',
         headers: {
@@ -43,7 +43,7 @@ export default function Inicio() {
 
       })
       if (res.status === 201) {
-        window.location.href = '/selectUser'
+        window.location.href = '/SelectUser'
       } else if (res.status === 401) {
         const data = await res.json()
         showSwal(data.message)

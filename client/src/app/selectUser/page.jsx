@@ -11,7 +11,7 @@ export default function SelectUser() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'}`, {
                     method: 'GET',
                     credentials: 'include',
                     withCredentials: true,
@@ -28,7 +28,7 @@ export default function SelectUser() {
 
         async function fetchProfileImages() {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/userPictures`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'}/userPictures`, {
                     method: 'GET',
                     credentials: 'include',
                 })
@@ -46,7 +46,7 @@ export default function SelectUser() {
     }, [])
 
     async function sendProfile(profile){
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/selectedProfile`,{
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'}/selectedProfile`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

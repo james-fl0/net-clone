@@ -9,25 +9,24 @@ import { config as configDotenv } from "dotenv";
 configDotenv()
 
 const app = express()
+app.use(express.json())
+
 app.use(cors({
-  origin: 'https://net-clone-iota.vercel.app',
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
   credentials: true,
 }));
 
 
-app.use(express.json())
 app.use(sessions)
-app.use(passportInitialize)
-app.use(passportSession)
+app.use(passportInitialize,passportSession)
 
-const port = process.env.PORT || 8080
 app.use(apiUsers)
 app.use('/api', membershipRouter)
 app.use(fetchUserPictures)
 
 app.get('/', async (req, res) => {
   try {
-    const user =  req.session.user
+    const user =  req.user
     if (user) {
       return res.status(201).json({ status: 'success', message: 'have session', user: user })
     } else {
@@ -37,7 +36,7 @@ app.get('/', async (req, res) => {
     return res.status(500).json({ status: 'error', message: 'server internal error' })
   }
 })
-
+const port = process.env.PORT || 8080
 app.listen(port, () => {
   console.log(`servidor iniciado en el puerto ${port}`);
 })

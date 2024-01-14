@@ -27,7 +27,7 @@ export default function SingUp() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'}`, {
                     method: 'GET',
                     credentials: 'include'
                 })
