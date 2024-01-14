@@ -16,7 +16,7 @@ export const sessions = session({
   cookie: {
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
-    domain: process.env.FRONTEND_URL || 'localhost',
+    domain: process.env.FRONTEND_URL_WHTTP || 'localhost',
     sameSite: 'None',
   },
   credentials: true
