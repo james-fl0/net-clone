@@ -12,7 +12,7 @@ loginRouter.post('/Login', async (req, res) => {
             httpOnly: true,
             secure: false,
             sameSite: 'Lax', 
-            domain: 'net-clone-xi.vercel.app', 
+            domain: 'http://net-clone-xi.vercel.app', 
         })
         console.log(req.protocol)
         res.status(201).json({ status: 'success', message: 'login ok' })
