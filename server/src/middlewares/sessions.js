@@ -16,7 +16,7 @@ export const sessions = session({
   cookie: {
     secure:true,
     httpOnly: true,
-    domain: process.env.FRONTEND_URL_WHTTP || 'localhost',
+    domain: process.env.FRONTEND_URL_WHTTP,
     sameSite: 'None',
   },
   credentials: true

@@ -41,7 +41,7 @@ app.get('/', async (req, res) => {
     res.status(401).json({ status: 'error', message: error.message })
   }
 })
-const port = process.env.PORT || 8080
+const port = process.env.PORT
 app.listen(port, () => {
   console.log(`servidor iniciado en el puerto ${port}`);
 })
