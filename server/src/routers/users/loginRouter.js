@@ -13,8 +13,8 @@ loginRouter.post('/Login', async (req, res) => {
             httpOnly: true, // La cookie solo es accesible a través de HTTP y no a través de JavaScript en el navegador
             secure: true, // Solo enviar la cookie en conexiones seguras (HTTPS) en producción
             sameSite: 'None', // Configurado a 'None' si necesitas enviar la cookie en solicitudes de navegadores de terceros
-            domain: process.env.FRONTEND_URL_WHTTP || 'localhost', // Dominio al que pertenece la cookie
-            path: '/', // Ruta a la que pertenece la cookie
+            domain: process.env.FRONTEND_URL || 'localhost', // Dominio al que pertenece la cookie
+            path: '/Login', // Ruta a la que pertenece la cookie
         })
         res.status(201).json({ status: 'success', message: 'login ok' })
     } catch (error) {
