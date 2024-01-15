@@ -9,12 +9,13 @@ loginRouter.post('/Login', async (req, res) => {
         const token =  jwt.sign(user, 'secret')
          req.session.token = token
          res.cookie('uth',token,{
-            httpOnly: false,
-            secure: true,
+            httpOnly: true,
+            secure: false,
             sameSite: 'None', 
             domain: 'net-clone-xi.vercel.app', 
-            path: '/', 
+            credentials:true 
         })
+        console.log(req.protocol)
         res.status(201).json({ status: 'success', message: 'login ok' })
     } catch (error) {
         res.status(401).json({ status: 'error', message: error.message })
