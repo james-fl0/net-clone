@@ -9,11 +9,11 @@ loginRouter.post('/Login', async (req, res) => {
         const token =  jwt.sign(user, 'secret')
          req.session.token = token
          res.cookie('uth',token,{
-            httpOnly: true, // La cookie solo es accesible a través de HTTP y no a través de JavaScript en el navegador
-            secure: true, // Solo enviar la cookie en conexiones seguras (HTTPS) en producción
-            sameSite: 'None', // Configurado a 'None' si necesitas enviar la cookie en solicitudes de navegadores de terceros
-            domain: 'net-clone-xi.vercel.app', // Dominio al que pertenece la cookie
-            path: '/', // Ruta a la que pertenece la cookie
+            httpOnly: false,
+            secure: true,
+            sameSite: 'None', 
+            domain: 'net-clone-xi.vercel.app', 
+            path: '/', 
         })
         res.status(201).json({ status: 'success', message: 'login ok' })
     } catch (error) {
