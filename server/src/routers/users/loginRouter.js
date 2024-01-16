@@ -12,7 +12,7 @@ loginRouter.post('/Login', async (req, res) => {
             httpOnly: true,
             secure: true,
             sameSite: 'None',
-            domain: process.env.FRONTEND_DOMAIN,
+            domain: '.fl0.io',
         })
         console.log(req.protocol)
         res.status(201).json({ status: 'success', message: 'login ok' })

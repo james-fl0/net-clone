@@ -31,13 +31,13 @@ app.get('/', async (req, res) => {
     if (!token) {
       throw new Error('no hay session')
     }
-    jwt.verify(token, 'secret',async (err, decoded) => {
+    jwt.verify(token, 'secret', async (err, decoded) => {
       if (err) {
         throw new Error('fail to decode jwt')
       }
-      const user = await userManager.findOne({_id:decoded})
+      const user = await userManager.findOne({ _id: decoded })
       res.status(201).json({ status: 'success', message: 'user finded', user: user })
-      res.send({hola:'bebe'})
+      res.send({ hola: 'bebe' })
     })
   } catch (error) {
     res.status(401).json({ status: 'error', message: error.message })
