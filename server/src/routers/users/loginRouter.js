@@ -8,12 +8,12 @@ loginRouter.post('/Login', async (req, res) => {
         const user = await userManager.login(req.body.email, req.body.password)
         const token = jwt.sign(user, 'secret')
         req.session.token = token
-        res.cookie('uth', 'cacaaaaaa', {
-            httpOnly: true,
-            secure: true,
-            sameSite: 'None',
-            domain: '.fl0.io',
-        })
+        // res.cookie('uth', 'cacaaaaaa', {
+        //     httpOnly: true,
+        //     secure: true,
+        //     sameSite: 'None',
+        //     domain: '.fl0.io',
+        // })
         console.log(req.protocol)
         res.status(201).json({ status: 'success', message: 'login ok' })
     } catch (error) {
