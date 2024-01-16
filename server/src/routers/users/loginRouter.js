@@ -11,8 +11,7 @@ loginRouter.post('/Login', async (req, res) => {
          res.cookie('uth','cacaaaaaa',{
             httpOnly: true,
             secure: true,
-            sameSite: 'None', 
-            domain: 'https://net-clone-xi.vercel.app', 
+            sameSite: 'None',
         })
         console.log(req.protocol)
         res.status(201).json({ status: 'success', message: 'login ok' })
