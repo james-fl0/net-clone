@@ -10,7 +10,7 @@ loginRouter.post('/Login', async (req, res) => {
          req.session.token = token
          res.cookie('uth','cacaaaaaa',{
             httpOnly: true,
-            secure: false,
+            secure: true,
             sameSite: 'None', 
             domain: 'net-clone-xi.vercel.app', 
         })
