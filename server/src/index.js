@@ -24,6 +24,7 @@ app.use(apiUsers)
 app.use('/api', membershipRouter)
 app.use(fetchUserPictures)
 
+
 app.get('/', async (req, res) => {
   try {
     const token = req.session.token
@@ -36,6 +37,7 @@ app.get('/', async (req, res) => {
       }
       const user = await userManager.findOne({_id:decoded})
       res.status(201).json({ status: 'success', message: 'user finded', user: user })
+      res.send({hola:'bebe'})
     })
   } catch (error) {
     res.status(401).json({ status: 'error', message: error.message })
