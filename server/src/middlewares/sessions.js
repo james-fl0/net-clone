@@ -12,9 +12,9 @@ export const sessions = session({
   store,
   secret: process.env.SECRET_COOKIE_KEY,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
-    secure:true,
+    secure: true,
     httpOnly: true,
     domain: process.env.FRONTEND_URL_WHTTP,
     sameSite: 'None',
